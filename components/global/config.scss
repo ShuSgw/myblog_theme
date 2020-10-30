@@ -1,0 +1,63 @@
+// $topTitle:'Playfair Display',
+// serif;
+// $subTitle:serif;
+
+// // color
+// $primary-text-color: #C49C6B;
+
+// // media querry
+$tab:767px;
+$pc:1200px;
+$mb:614px;
+$sp:370px;
+
+// // box
+$desktopMaxContainer:1200px;
+
+$baseClr:#A7886B;
+$baseClr2:#b59b7f;
+$baseClrWeak:#ECE7E1;
+
+$secClr:#ffffff;
+
+$thirdClr: #333333;
+$baseFnt:'';
+
+$fontFa1st: 'Rubik',
+sans-serif;
+$fontFa2nd: 'Cabin',
+sans-serif;
+$fontFa3rd: 'Cabin Condensed',
+sans-serif;
+$fontFa4th: 'Inter',
+sans-serif;
+
+@mixin tab {
+    @media (min-width: ($tab)) {
+        @content;
+    }
+}
+
+@mixin pc {
+    @media (min-width: ($pc)) {
+        @content;
+    }
+}
+
+@mixin sp {
+    @media (max-width: ($sp)) {
+        @content;
+    }
+}
+
+// body {
+//   background: red;
+
+//   @include tab {
+//     background-color: yellow;
+//   }
+
+//   @include pc {
+//     background-color: blue;
+//   }
+// }

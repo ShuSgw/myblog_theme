@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/header.scss"],"names":[],"mappings":"AAAA;EACI,gBAAgB,EAAA","file":"../../pages/header.css","sourcesContent":["header {\n    background: pink;\n}"]}

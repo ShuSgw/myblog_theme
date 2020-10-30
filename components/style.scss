@@ -1,0 +1,18 @@
+/*
+Theme Name: boilerplate
+*/
+
+// reset
+// @import "../node_modules/reset-css/sass/reset";
+
+// // base and WP pages
+// @import './global/index.scss';
+// @import './pages/header.scss';
+// @import './pages/footer.scss';
+
+// // modules components base
+@import "./main/sample.scss";
+
+body {
+  background-color: pink;
+}

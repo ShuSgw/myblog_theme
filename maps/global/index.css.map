@@ -1,0 +1,1 @@
+{"version":3,"sources":["global/index.scss"],"names":[],"mappings":"AAEA;EACI,qBAAqB,EAAA;;AAGzB;EACI,sBAAsB,EAAA","file":"../../global/index.css","sourcesContent":["@import './config.scss';\n\nheader {\n    background-color: red;\n}\n\nfooter {\n    background-color: blue;\n}"]}
