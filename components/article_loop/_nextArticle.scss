@@ -1,0 +1,28 @@
+.nextArticle {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 3em;
+}
+
+.nextArticle_box {
+    display: flex;
+    width: 49%;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid silver;
+    padding: 2em;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+        box-shadow: 5px 5px black;
+        transition: all 0.5s ease-in-out;
+    }
+    img {
+        width: 30%;
+        height: auto;
+    }
+}
+
+.nextArticle_box_innerText {
+    margin-left: 2em;
+}

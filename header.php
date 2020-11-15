@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class='wrap'>
-        <header>
-            header
+    <div id='wrap'>
+        <header class='bg-dark pt-4 pb-4 border-bottom'>
+            <?php get_template_part('./components/headerNav/headerNav'); ?>
         </header>

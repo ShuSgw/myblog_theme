@@ -61,7 +61,8 @@ function twpp_setup_theme()
 add_action('after_setup_theme', 'twpp_setup_theme');
 
 // add image size
-// add_image_size('sample_thumb', 665, 374, true);
+add_image_size('bootsrap_thumb', 640, 360, true);
+add_image_size('next_thumb_onSingle', 160, 90, true);
 
 // add class into a tag on nav
 // function wpse156165_menu_add_class($atts, $item, $args)
@@ -110,3 +111,72 @@ function remove_menus()
 
 // バーをすべてのユーザーで非表示
 add_filter('show_admin_bar', '__return_false');
+
+add_action('init', function () {
+    remove_filter('the_excerpt', 'wpautop');
+    remove_filter('the_content', 'wpautop');
+});
+add_filter('tiny_mce_before_init', function ($init) {
+    $init['wpautop'] = false;
+    $init['apply_source_formatting'] = ture;
+
+    return $init;
+});
+
+function register_my_menus()
+{
+    register_nav_menus([
+    'main-menu' => 'Main Menu',
+    'footer-menu' => 'Footer Menu',
+  ]);
+}
+add_action('after_setup_theme', 'register_my_menus');
+
+function new_submenu_class($menu)
+{
+    $menu = preg_replace('/ class="sub-menu"/', '/ class="collapse list-unstyled" id="pageSubmenu" /', $menu);
+
+    return $menu;
+}
+
+add_filter('wp_nav_menu', 'new_submenu_class');
+
+// メニューのliにクラス追加
+function add_additional_class_on_li($classes, $item, $args)
+{
+    if (isset($args->add_li_class)) {
+        $classes[] = $args->add_li_class;
+    }
+
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
+
+// コメントフォーム変更
+function mytheme_comment($comment, $args, $depth)
+{
+    $GLOBALS['comment'] = $comment; ?>
+<div <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+    <div class='comment_list' id="comment-<?php comment_ID(); ?>">
+        <div class="comment-author">
+            <?php echo get_avatar($comment); ?>
+        </div>
+        <div class="comment-contents">
+            <?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()); ?>
+            <?php if ($comment->comment_approved == '0') : ?>
+            <em><?php _e('Your comment is awaiting moderation.'); ?></em>
+            <br />
+            <?php endif; ?>
+
+            <div class="comment-meta commentmetadata d-flex"><a
+                    href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)); ?>"><?php printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time()); ?></a><?php edit_comment_link(__('(Edit)'), '  ', ''); ?>
+            </div>
+            <?php comment_text(); ?>
+            <div class="reply">
+                <?php comment_reply_link(array_merge($args, ['depth' => $depth, 'max_depth' => $args['max_depth']])); ?>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+}

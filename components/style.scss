@@ -1,18 +1,105 @@
 /*
-Theme Name: boilerplate
+Theme Name: my blog theme
 */
 
 // reset
 // @import "../node_modules/reset-css/sass/reset";
 
-// // base and WP pages
-// @import './global/index.scss';
-// @import './pages/header.scss';
-// @import './pages/footer.scss';
+// @import "./main/main";
+// @import "./list/sass/index";
 
-// // modules components base
-@import "./main/sample.scss";
+@import "./global/sass/index";
+@import "./article_loop/index";
+@import "./my_gutenberg/index.scss";
 
-body {
-  background-color: pink;
+article {
+  img {
+    height: auto;
+  }
+}
+.single_thumb {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+// modules
+@import "./headerNav/sass/index";
+
+.test {
+  display: flex;
+}
+
+main {
+}
+
+.ad_sample {
+  width: 300px;
+  height: 280px;
+  background-position: center;
+  background-size: 100% 100%;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRXSiFlpkoG2mKE0SDU2jWzp9DsNeOgVnIxsQ&usqp=CAU");
+}
+
+.menu-item-has-children {
+  position: relative;
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 5%;
+  }
+}
+
+.menu-item-has-children--mobile_icon {
+  &:after {
+    @include fontawesomefree("\f067");
+  }
+}
+
+.menu-item-has-children--pc_icon {
+  &:after {
+    @include fontawesomefree("\f107");
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+// コメント
+.comment_wrap {
+  margin-top: 3em;
+}
+.comment {
+  padding: 1em 1em;
+  border-bottom: 1px dotted silver;
+  &:first-child {
+    border-top: 1px dotted silver;
+  }
+}
+.comment_list {
+  display: flex;
+  margin-top: 1em !important;
+}
+
+.comment-author {
+}
+
+.comment-contents {
+  width: 100%;
+  margin-left: 2em;
+}
+
+.reply {
+  text-align: right;
+}
+
+.comment-reply-title {
+}
+
+.site_title {
+  font-size: 30px;
+  @include pc {
+    font-size: 25px;
+  }
 }

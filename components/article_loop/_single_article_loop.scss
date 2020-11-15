@@ -1,0 +1,13 @@
+@import "../global/sass/index";
+
+main {
+    @include pc {
+        // max-width: 800px;
+    }
+}
+
+.single_main_contents {
+    @include pc {
+        padding: 0 7em;
+    }
+}
